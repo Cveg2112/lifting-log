@@ -1,0 +1,17 @@
+/******************************************************************************************************
+TYPOGRAPHY
+font-family: capitol, sans-serif; ----- weights: 300, 400, 700
+font-family: proxima-nova-extra-condensed, sans-serif; ----- weights: 300, 500, 600, 700
+******************************************************************************************************/
+
+$capitol: 'capitol', sans-serif;
+$proximaNova: 'proxima-nova-extra-condensed', sans-serif;
+
+h1, h2, h3 {
+  font-family: $capitol;
+  color: $hotPink;
+}
+
+p, li, button, a {
+  font-family: $proximaNova;
+}

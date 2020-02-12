@@ -1,0 +1,28 @@
+.cp-footer {
+  text-align: center;
+  background-color: $darkPurple;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 4px; width: 100%;
+    background-color: $hotPink;
+  }
+
+  > .in {
+    padding: $defaultPadding;
+  }
+
+  &__text {
+    color: $offWhite;
+    font: {
+      weight: 400;
+      size: 16px;
+      style: italic;
+    }
+  }
+}
