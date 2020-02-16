@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from '../../assets/svg/conors-log-logo.svg';
+import { Link } from 'react-router-dom';
 
 const userList = [
   'Conor', 'Jamie', 'Kristian'
@@ -7,7 +8,8 @@ const userList = [
 
 const header = (props) => {
   const list = userList.map(user => {
-    return <li onClick={props.clickedUser} data-name={user}>{user}</li>
+    let userLink = '/' + user.toLowerCase();
+    return <li><Link onClick={props.clickedUser} data-name={user} to={userLink}>{user}</Link></li>
   });
 
   return (
