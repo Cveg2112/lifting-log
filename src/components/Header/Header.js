@@ -3,13 +3,13 @@ import Logo from '../../assets/svg/conors-log-logo.svg';
 import { Link } from 'react-router-dom';
 
 const userList = [
-  'Conor', 'Jamie', 'Kristian'
+  'conor', 'jamie', 'kristian'
 ];
 
 const header = (props) => {
   const list = userList.map(user => {
-    let userLink = '/' + user.toLowerCase();
-    return <li><Link onClick={props.clickedUser} data-name={user} to={userLink}>{user}</Link></li>
+    let userLink = user;
+    return <li><Link onClick={props.clickedUser} data-name={user} to={'/' + userLink} >{user}</Link></li>
   });
 
   return (
@@ -28,7 +28,6 @@ const header = (props) => {
           </ul>
         </div>
       </div>
-
     </header>
   );
 }

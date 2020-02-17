@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import BGSun from '../../assets/svg/sun.svg';
 // router
 import { Route, Switch } from 'react-router-dom';
-import AssignedRoutines from '../../components/AssignedRoutines/AssignedRoutines';
+import User from '../../components/User/User';
 
 class LiftingLog extends Component {
 
@@ -15,9 +15,9 @@ class LiftingLog extends Component {
     userMenu: false
   }
 
-  componentDidMount(){
-    console.log(this.props.match) 
-  }
+  // componentDidMount(){
+  //   console.log(this.props.match) 
+  // }
 
   updateUserHandler = ( user ) => {
     let theUser = user.target.getAttribute('data-name');
@@ -40,8 +40,6 @@ class LiftingLog extends Component {
       position: 'fixed',
     };
 
-    let currentUserUrl = '/' + this.state.currentUser;
-
     return (
       <div>
         <div style={bgStyle}></div>
@@ -53,7 +51,7 @@ class LiftingLog extends Component {
         <main>
           <Switch>
             <Route path="/" exact render={ () => <h1>Home</h1> } />
-            <Route path="" render={ () => <AssignedRoutines user={this.state.currentUser} /> } />
+            <Route path="/:uid" component={User} />
           </Switch>
         </main>
         <Footer />
