@@ -5,7 +5,8 @@ import Footer from '../../components/Footer/Footer';
 // sun bg
 import BGSun from '../../assets/svg/sun.svg';
 // router
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import AssignedRoutines from '../../components/AssignedRoutines/AssignedRoutines';
 
 class LiftingLog extends Component {
 
@@ -14,9 +15,13 @@ class LiftingLog extends Component {
     userMenu: false
   }
 
+  componentDidMount(){
+    console.log(this.props.match) 
+  }
+
   updateUserHandler = ( user ) => {
     let theUser = user.target.getAttribute('data-name');
-    this.setState({ currentUser: theUser });
+    this.setState({ currentUser: theUser }); 
   }
 
   menuActiveHandler = () => {
@@ -40,14 +45,16 @@ class LiftingLog extends Component {
     return (
       <div>
         <div style={bgStyle}></div>
-        <Header 
-          currentUser={this.state.currentUser} 
+        <Header
+          currentUser={this.state.currentUser}
           menuActive={this.state.userMenu}
           clickedMenu={this.menuActiveHandler}
           clickedUser={this.updateUserHandler} />
         <main>
-          <Route path="/" exact render={ () => <h2>Home</h2> } />
-          <Route path="" render={ () => <h2>{this.state.currentUser}</h2>} />
+          <Switch>
+            <Route path="/" exact render={ () => <h1>Home</h1> } />
+            <Route path="" render={ () => <AssignedRoutines user={this.state.currentUser} /> } />
+          </Switch>
         </main>
         <Footer />
       </div>

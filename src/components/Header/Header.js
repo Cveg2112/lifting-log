@@ -16,10 +16,10 @@ const header = (props) => {
     <header className="cp-header" >
       <div className="in">
         <div className="cp-header__logo">
-          <img src={Logo} />
+          <Link to="/"><img src={Logo} /></Link>
         </div>
         <div className="cp-header__menu">
-          <button 
+          <button
             onClick={props.clickedMenu}>
             { props.currentUser ? props.currentUser : 'Select a user' }
           </button>
@@ -28,7 +28,7 @@ const header = (props) => {
           </ul>
         </div>
       </div>
-      
+
     </header>
   );
 }
