@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import BGSun from '../../assets/svg/sun.svg';
 // router
 import { Route, Switch } from 'react-router-dom';
-import User from '../../components/User/User';
+import User from '../User/User';
 
 class LiftingLog extends Component {
 
@@ -15,13 +15,8 @@ class LiftingLog extends Component {
     userMenu: false
   }
 
-  // componentDidMount(){
-  //   console.log(this.props.match) 
-  // }
-
   updateUserHandler = ( user ) => {
-    let theUser = user.target.getAttribute('data-name');
-    this.setState({ currentUser: theUser }); 
+    this.setState({ currentUser: user }); 
   }
 
   menuActiveHandler = () => {
@@ -50,8 +45,10 @@ class LiftingLog extends Component {
           clickedUser={this.updateUserHandler} />
         <main>
           <Switch>
-            <Route path="/" exact render={ () => <h1>Home</h1> } />
-            <Route path="/:uid" component={User} />
+            <Route path="/" exact render={() => <h1>Home</h1>} />
+            <Route path="/:uid" render={routeProps => (
+              <User current={this.state.currentUser} pageLoad={this.updateUserHandler} {...routeProps} /> 
+            )} />
           </Switch>
         </main>
         <Footer />

@@ -8,15 +8,15 @@ const userList = [
 
 const header = (props) => {
   const list = userList.map(user => {
-    let userLink = user;
-    return <li><Link onClick={props.clickedUser} data-name={user} to={'/' + userLink} >{user}</Link></li>
+    let userLink = '/' + user.toLowerCase();
+    return <li><Link onClick={() => props.clickedUser(user)} data-name={user} to={userLink}>{user}</Link></li>
   });
 
   return (
     <header className="cp-header" >
       <div className="in">
         <div className="cp-header__logo">
-          <Link to="/"><img src={Logo} /></Link>
+          <Link to="/"><img src={Logo} alt="Adding this so that the warnings will fuck off"/></Link>
         </div>
         <div className="cp-header__menu">
           <button
@@ -28,6 +28,7 @@ const header = (props) => {
           </ul>
         </div>
       </div>
+
     </header>
   );
 }
