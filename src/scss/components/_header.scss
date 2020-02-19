@@ -1,6 +1,9 @@
 .cp-header {
   text-align: center;
   background-color: $darkPurple;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
   z-index: 420;
 
   &:before {
@@ -41,6 +44,8 @@
       color: $hotPink;
       font-weight: 400;
       font-family: 'Saira Semi Condensed', sans-serif;
+      font-size: 18px;
+      letter-spacing: .05em;
       &.is-active {
         // do stuff
         color: $lightBlue;
@@ -70,10 +75,10 @@
         border-top: 1px solid rgba($lightBlue, .7);
         position: relative;
         color: $offWhite;
-        
+        font-size: 18px;
         text-align: center;
         transition: all .35s ease;
-
+ 
         a {
           text-decoration: none;
           padding: 10px 0;

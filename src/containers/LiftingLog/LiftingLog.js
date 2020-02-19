@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
 
-import Header from '../../components/Header/Header';
+import Header from '../Header/Header';
 import Footer from '../../components/Footer/Footer';
 // sun bg
 import BGSun from '../../assets/svg/sun.svg';
 // router
 import { Route, Switch, Redirect } from 'react-router-dom';
 import User from '../User/User';
+// axios
+import axios from '../../axios.js';
 
 class LiftingLog extends Component {
 
   state = {
+    userlist: null,
     currentUser: null,
-    userMenu: false
+  }
+
+  componentDidMount(){
+    axios.get('wp/v2/users')
+      .then( response => {
+        let data = response.data;
+        this.setState({
+          userList: data
+        })
+      });
   }
 
   updateUserHandler = ( user ) => {
     this.setState({ currentUser: user }); 
-  }
-
-  menuActiveHandler = () => {
-    let current = this.state.userMenu;
-    this.setState({ userMenu: !current });
   }
 
   render(){
@@ -40,9 +47,7 @@ class LiftingLog extends Component {
         <div style={bgStyle}></div>
         <Header
           currentUser={this.state.currentUser}
-          menuActive={this.state.userMenu}
-          clickedMenu={this.menuActiveHandler}
-          clickedMenuItem={this.menuActiveHandler}
+          userList={this.state.userList}
           clickedUser={this.updateUserHandler} />
         <main>
           <Switch>
@@ -51,7 +56,6 @@ class LiftingLog extends Component {
             <Route path="/user/:uid" render={routeProps => (
               <User current={this.state.currentUser} pageLoad={this.updateUserHandler} {...routeProps} /> 
             )} />
-            
           </Switch>
         </main>
         <Footer />

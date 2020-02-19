@@ -1,8 +1,8 @@
-$odibee: 'Rajdhani', sans-serif;
+$arvo: 'Exo', sans-serif;
 $saira: 'Saira Semi Condensed', sans-serif;
 
 h1, h2, h3 {
-  font-family: $odibee;
+  font-family: $saira;
   color: $hotPink;
   letter-spacing: 0.05em;
   font-weight: 700;
@@ -10,7 +10,7 @@ h1, h2, h3 {
   &:after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -8px;
     left: 0;
     width: 100%;
     height: 1px;
@@ -19,6 +19,13 @@ h1, h2, h3 {
 }
 
 p, li, button, a {
-  font-family: $saira;
+  font-family: $arvo;
+}
+
+p, li {
+  color: #fff;
+  letter-spacing: .05em;
+  font-size: 18px;
+  line-height: 1.5em;
 }
 

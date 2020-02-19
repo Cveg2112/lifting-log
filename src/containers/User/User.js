@@ -2,16 +2,24 @@ import React, { Component } from 'react';
 
 class User extends Component {
     
+    state = {
+        currentUserInfo: null
+    }
+
+    // currentUserHandler = () => {
+    //     let currentUser = this.props.current;
+    // }
+    
     componentDidMount(){
-        console.log()
         this.props.pageLoad(this.props.match.params.uid);
     }
 
     render(){
         return (
-            <section className="cp-routines">
+            <section className="cp-contentBox">
                 <div className="in">
-                    <h1>{this.props.current}'s Page</h1>
+                    <h1>User: {this.props.current}</h1>
+                    <p></p>
                 </div>
             </section>
         );
