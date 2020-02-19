@@ -1,17 +1,24 @@
-/******************************************************************************************************
-TYPOGRAPHY
-font-family: capitol, sans-serif; ----- weights: 300, 400, 700
-font-family: proxima-nova-extra-condensed, sans-serif; ----- weights: 300, 500, 600, 700
-******************************************************************************************************/
-
-$capitol: 'capitol', sans-serif;
-$proximaNova: 'proxima-nova-extra-condensed', sans-serif;
+$odibee: 'Rajdhani', sans-serif;
+$saira: 'Saira Semi Condensed', sans-serif;
 
 h1, h2, h3 {
-  font-family: $capitol;
+  font-family: $odibee;
   color: $hotPink;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $hotPink;
+  }
 }
 
 p, li, button, a {
-  font-family: $proximaNova;
+  font-family: $saira;
 }
+

@@ -39,7 +39,8 @@
 
     button {
       color: $hotPink;
-      font-weight: bold;
+      font-weight: 400;
+      font-family: 'Saira Semi Condensed', sans-serif;
       &.is-active {
         // do stuff
         color: $lightBlue;
@@ -69,12 +70,14 @@
         border-top: 1px solid rgba($lightBlue, .7);
         position: relative;
         color: $offWhite;
-        padding: 10px 0;
+        
         text-align: center;
         transition: all .35s ease;
 
         a {
           text-decoration: none;
+          padding: 10px 0;
+          display: block;
           color: #fff;
         }
 

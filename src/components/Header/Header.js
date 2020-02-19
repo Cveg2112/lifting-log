@@ -9,7 +9,7 @@ const userList = [
 const header = (props) => {
   const list = userList.map(user => {
     let userLink = '/user/' + user;
-    return <li><Link onClick={() => props.clickedUser(user)} to={userLink}>{user}</Link></li>
+    return <li onClick={props.clickedMenuItem}><Link onClick={() => props.clickedUser(user)} to={userLink}>{user}</Link></li>
   });
 
   return (
@@ -25,7 +25,6 @@ const header = (props) => {
           </ul>
         </div>
       </div>
-
     </header>
   );
 }

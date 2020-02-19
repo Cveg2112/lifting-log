@@ -42,6 +42,7 @@ class LiftingLog extends Component {
           currentUser={this.state.currentUser}
           menuActive={this.state.userMenu}
           clickedMenu={this.menuActiveHandler}
+          clickedMenuItem={this.menuActiveHandler}
           clickedUser={this.updateUserHandler} />
         <main>
           <Switch>
